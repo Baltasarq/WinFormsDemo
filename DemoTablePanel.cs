@@ -1,15 +1,15 @@
-using System;
-using System.Windows.Forms;
-using System.Drawing;
-
 namespace WinForms {
+    using System.Drawing;
+    using System.Windows.Forms;
+
+    /// <summary>Demoes the use of a table panel.</summary>
 	public class DemoTablePanel: Form {
 		public DemoTablePanel()
 		{
-			this.BuildGui();
+			this.Build();
 		}
 
-		private void BuildGui()
+		private void Build()
 		{
 			var pnlTable = new TableLayoutPanel();
 
@@ -39,6 +39,7 @@ namespace WinForms {
 			pnlTable.ResumeLayout( false );
 			this.Controls.Add( pnlTable );
 
+            this.Text = this.GetType().Name;
 			this.MinimumSize = new Size( 320, 240 );
 		}
 	}

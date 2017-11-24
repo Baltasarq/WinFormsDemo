@@ -1,15 +1,15 @@
-using System;
-using System.Windows.Forms;
-using System.Drawing;
-
 namespace WinForms {
-	public class DemoPanel: Form {
-		public DemoPanel()
+    using System.Drawing;
+    using System.Windows.Forms;
+    
+    /// <summary>Demoes the use of a simple panel.</summary>
+	public class DemoSimplePanel: Form {
+		public DemoSimplePanel()
 		{
-			this.BuildGui();
+			this.Build();
 		}
 
-		private void BuildGui()
+		private void Build()
 		{
 			var pnlRegular = new Panel();
 
@@ -46,6 +46,7 @@ namespace WinForms {
 			pnlRegular.ResumeLayout( false );
 			this.Controls.Add( pnlRegular );
 
+            this.Text = this.GetType().Name;
 			this.MinimumSize = new Size( 320, 240 );
 		}
 	}

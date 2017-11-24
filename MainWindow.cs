@@ -6,7 +6,7 @@ namespace WinForms {
 	public class MainWindow: Form {
 		public MainWindow()
 		{
-			this.BuildGui();
+			this.Build();
 		}
 
 		private void OnQuit()
@@ -14,82 +14,107 @@ namespace WinForms {
 			this.Hide();
 			this.Close();
 		}
-
-		private void OnViewDefaultPanel()
-		{
-			new DemoPanel().Show();
-		}
-
-		private void OnViewTablePanel()
-		{
-			new DemoTablePanel().Show();
-		}
+        
+        private void ViewDemoPanel()
+        {
+            new DemoSimplePanel().Show();
+        }
+        
+        private void ViewTablePanel()
+        {
+            new DemoTablePanel().Show();
+        }
+        
+        private void ViewDemoChart()
+        {
+            new DemoChart().Show();
+        }
 
 		private void BuildMenu()
 		{
 			this.Menu = new MainMenu();
-
-			var mFile = new MenuItem( "&File" );
-			var opQuit = new MenuItem( "&Quit" );
-			mFile.MenuItems.Add( opQuit );
-			opQuit.Shortcut = Shortcut.CtrlQ;
-			opQuit.Click += delegate(object o, EventArgs args) {
+            
+            // Quit
+            var opQuit = new MenuItem("&Quit") {
+                Shortcut = Shortcut.CtrlQ
+            };
+            
+            opQuit.Click += (sender, args) => {
 				this.OnQuit();
 			};
 
-			var mView = new MenuItem( "&View" );
-			var opDefaultPanel = new MenuItem( "&Default panel" );
-			mView.MenuItems.Add( opDefaultPanel );
-			opDefaultPanel.Shortcut = Shortcut.CtrlQ;
-			opDefaultPanel.Click += delegate(object o, EventArgs args) {
-				this.OnViewDefaultPanel();
-			};
-			var opTablePanel = new MenuItem( "&Table panel" );
-			mView.MenuItems.Add( opTablePanel );
-			opTablePanel.Shortcut = Shortcut.CtrlQ;
-			opTablePanel.Click += delegate(object o, EventArgs args) {
-				this.OnViewTablePanel();
-			};
+            // View default panel
+            var opSimplePanel = new MenuItem("&Simple panel") {
+                Shortcut = Shortcut.CtrlF5
+            };
+            
+            opSimplePanel.Click += (sender, args) => this.ViewDemoPanel();
 
+            // View table panel
+            var opTablePanel = new MenuItem("&Table panel") {
+                Shortcut = Shortcut.CtrlF6
+            };
+            
+            opTablePanel.Click += (sender, args) => this.ViewTablePanel();
+            
+            // View chart demo
+            var opChartDemo = new MenuItem("&Chart demo") {
+                Shortcut = Shortcut.CtrlF11
+            };
+            
+            opChartDemo.Click += (sender, args) => this.ViewDemoChart();
 
+            // Main menus
+            var mFile = new MenuItem( "&File" );
+            var mView = new MenuItem( "&View" );
+
+            // Add options to menus
+            mFile.MenuItems.Add( opQuit );
+
+            mView.MenuItems.Add( opSimplePanel );
+            mView.MenuItems.Add( opTablePanel );
+            mView.MenuItems.Add( opChartDemo );
+            
 			this.Menu.MenuItems.Add( mFile );
 			this.Menu.MenuItems.Add( mView );
 		}
 
-		private void BuildGui()
+		private void Build()
 		{
 			var pnlTable = new TableLayoutPanel();
 
 			pnlTable.SuspendLayout();
 			pnlTable.Dock = DockStyle.Fill;
 
-			var btFirst = new Button();
-			var btSecond = new Button();
+            var btFirst = new Button {
+                Text = "First",
+                Dock = DockStyle.Top
+            };
 
-			btFirst.Text = "First";
-			btFirst.Dock = DockStyle.Top;
-			btSecond.Text = "Second";
-			btSecond.Dock = DockStyle.Top;
+            var btSecond = new Button {
+                Text = "Second",
+                Dock = DockStyle.Top
+            };
+            
+            var btThird = new Button {
+                Text = "Third",
+                Dock = DockStyle.Top
+            };
 
-			btFirst.Click += delegate(object sender, EventArgs e) {
-				var w = new DemoPanel();
-				w.Show();
-			};
-
-			btSecond.Click += delegate(object sender, EventArgs e) {
-				var w = new DemoTablePanel();
-				w.Show();
-			};
+			btFirst.Click += (sender, args) => ViewDemoPanel();
+            btSecond.Click += (sender, args) => ViewTablePanel();
+			btThird.Click += (sender, args) => ViewDemoChart();
 
 			pnlTable.Controls.Add( btFirst );
 			pnlTable.Controls.Add( btSecond );
+            pnlTable.Controls.Add( btThird );
 
 			pnlTable.ResumeLayout( false );
 			this.Controls.Add( pnlTable );
 
+            this.BuildMenu();
 			this.MinimumSize = new Size( 320, 240 );
-			this.BuildMenu();
+            this.Text = "WinFormsDemo";
 		}
 	}
 }
-

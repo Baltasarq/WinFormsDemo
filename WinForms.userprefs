@@ -1,15 +1,15 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MainWindow.cs">
+﻿<Properties StartupConfiguration="{CAC27086-60C3-4F3C-BEF1-C71623EFA272}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Chart.cs">
     <Files>
-      <File FileName="DemoPanel.cs" Line="30" Column="4" />
-      <File FileName="DemoTablePanel.cs" Line="32" Column="4" />
-      <File FileName="Ppal.cs" Line="10" Column="29" />
-      <File FileName="MainWindow.cs" Line="44" Column="39" />
+      <File FileName="DemoChart.cs" Line="27" Column="45" />
+      <File FileName="Chart.cs" Line="33" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.WinForms PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

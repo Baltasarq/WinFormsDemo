@@ -1,7 +1,7 @@
-using System;
-using System.Windows.Forms;
-
 namespace WinForms {
+    using System;
+    using System.Windows.Forms;
+
 	public class Ppal {
 
 		[STAThread]
@@ -20,4 +20,3 @@ namespace WinForms {
 		}
 	}
 }
-
