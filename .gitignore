@@ -29,3 +29,7 @@
 *.app
 bin/
 obj/
+
+# Preferences
+*.user
+*.userprefs

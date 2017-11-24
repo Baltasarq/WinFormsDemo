@@ -1,4 +1,4 @@
-namespace WinForms {
+namespace WinFormsDemo {
     using System;
     using System.Windows.Forms;
 

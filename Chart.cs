@@ -1,4 +1,4 @@
-﻿namespace WinForms {
+﻿namespace WinFormsDemo {
     using System.Linq;
     using System.Drawing;
     using System.Windows.Forms;

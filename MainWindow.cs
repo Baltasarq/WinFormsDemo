@@ -2,7 +2,7 @@ using System;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace WinForms {
+namespace WinFormsDemo {
 	public class MainWindow: Form {
 		public MainWindow()
 		{

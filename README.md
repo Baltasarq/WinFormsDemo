@@ -1,2 +1,9 @@
 # WinFormsDemo
-Demo for the basic capabilities of WinForms with C#
+
+Demo for various capabilities of WinForms with C#, including:
+
+- Simple panels
+- Table panels
+- Menus
+- Drawing / charts
+
