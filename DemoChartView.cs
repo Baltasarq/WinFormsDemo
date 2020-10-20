@@ -1,25 +1,23 @@
+// WinFormsDemo (c) Baltasar 2017/20 MIT License <jbgarcia@uvigo.es>
+
+
 namespace WinFormsDemo {
     using System.Drawing;
     using System.Windows.Forms;
     
     /// <summary>Demoes painting a chart.</summary>
-	public class DemoChart: Form {
+	public class DemoChartView: Form {
         public const int ChartCanvasSize = 512;
     
         /// <summary>
-        /// Initializes a new <see cref="T:WinForms.DemoChart"/>.
+        /// Initializes a new <see cref="T:WinForms.DemoChartView"/>.
         /// </summary>
-		public DemoChart()
+		public DemoChartView()
 		{
 			this.Build();
-            
-            this.Chart.LegendY = "Sells (in thousands)";
-            this.Chart.LegendX = "Months";
-            this.Chart.Values = new []{ 10, 20, 30, 40, 25, 21, 11, 2, 28, 33, 18, 45 };
-            this.Chart.Draw();
 		}
 
-		private void Build()
+		void Build()
 		{
             this.Chart = new Chart( width: ChartCanvasSize,
                                     height: ChartCanvasSize)

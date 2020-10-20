@@ -33,10 +33,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chart.cs" />
-    <Compile Include="DemoChart.cs" />
-    <Compile Include="DemoSimplePanel.cs" />
-    <Compile Include="DemoTablePanel.cs" />
-    <Compile Include="MainWindow.cs" />
+    <Compile Include="DemoChartCtrl.cs" />
+    <Compile Include="DemoChartView.cs" />
+    <Compile Include="DynamicPanelCtrl.cs" />
+    <Compile Include="DynamicPanelView.cs" />
+    <Compile Include="SimplePanelView.cs" />
+    <Compile Include="TablePanelView.cs" />
+    <Compile Include="MainWindowCtrl.cs" />
+    <Compile Include="MainWindowView.cs" />
     <Compile Include="Ppal.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

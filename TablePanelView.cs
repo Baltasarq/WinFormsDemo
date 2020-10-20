@@ -1,10 +1,13 @@
+// WinFormsDemo (c) Baltasar 2017/20 MIT License <jbgarcia@uvigo.es>
+
+
 namespace WinFormsDemo {
     using System.Drawing;
     using System.Windows.Forms;
 
     /// <summary>Demoes the use of a table panel.</summary>
-	public class DemoTablePanel: Form {
-		public DemoTablePanel()
+	public class TablePanelView: Form {
+		public TablePanelView()
 		{
 			this.Build();
 		}

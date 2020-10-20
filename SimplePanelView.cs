@@ -1,10 +1,13 @@
+// WinFormsDemo (c) Baltasar 2017/20 MIT License <jbgarcia@uvigo.es>
+
+
 namespace WinFormsDemo {
     using System.Drawing;
     using System.Windows.Forms;
     
     /// <summary>Demoes the use of a simple panel.</summary>
-	public class DemoSimplePanel: Form {
-		public DemoSimplePanel()
+	public class SimplePanelView: Form {
+		public SimplePanelView()
 		{
 			this.Build();
 		}

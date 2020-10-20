@@ -75,7 +75,7 @@ namespace WinFormsDemo {
                     verticalDrawFmt );
         } 
         
-        private void DrawData()
+        void DrawData()
         {
             int numValues = this.values.Count;
             var p = this.DataOrgPosition;
@@ -107,7 +107,7 @@ namespace WinFormsDemo {
             }
         }
         
-        private void DrawAxis()
+        void DrawAxis()
         {
             // Y axis
             this.grf.DrawLine( this.AxisPen,
@@ -124,14 +124,14 @@ namespace WinFormsDemo {
                                this.FramedEndPosition );
         }
 
-        private void Build()
+        void Build()
         {
 			Bitmap bmp = new Bitmap( this.Width, this.Height );
 			this.Image = bmp;
             this.grf = Graphics.FromImage( bmp );
         }
         
-        private void NormalizeData()
+        void NormalizeData()
         {
             int maxHeight = this.DataOrgPosition.Y - this.FrameWidth;
             int maxValue = this.values.Max();
@@ -277,8 +277,8 @@ namespace WinFormsDemo {
             get; set;
         }
 
-        private Graphics grf;
-        private List<int> values;
-        private int[] normalizedData;
+        Graphics grf;
+        List<int> values;
+        int[] normalizedData;
     }
 }

@@ -1,21 +1,24 @@
+// WinFormsDemo (c) Baltasar 2017/20 MIT License <jbgarcia@uvigo.es>
+
+
 namespace WinFormsDemo {
-    using System;
-    using System.Windows.Forms;
+    using WForms = System.Windows.Forms;
 
 	public class Ppal {
 
-		[STAThread]
+		[System.STAThread]
 		public static void Main()
 		{
-			var form = new MainWindow( );
+			var form = new MainWindowCtrl().View;
 
 			try {
 				form.Show( );
-				Application.Run( form );
-			} catch(Exception exc)
+				WForms.Application.Run( form );
+			} catch(System.Exception exc)
 			{
-				MessageBox.Show( "Unexpected: " + exc.Message, "Demo",
-				                 MessageBoxButtons.OK, MessageBoxIcon.Error );
+				WForms.MessageBox.Show( "Unexpected: " + exc.Message, "Demo",
+				                 WForms.MessageBoxButtons.OK,
+				                 WForms.MessageBoxIcon.Error );
 			}
 		}
 	}
