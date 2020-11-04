@@ -20,7 +20,7 @@ namespace WinFormsDemo {
 
         public void ChangeTo(FormView view)
         {
-            var panels = new WForms.Panel[] { this.PnlPassenger, this.PnlGood };
+            var panels = new WForms.Panel[] { this.pnlPassenger, this.pnlGood };
             WForms.Panel panel = panels[ (int) view ];
 
             Array.ForEach( panels, (p) => p.Hide()  );
@@ -30,11 +30,12 @@ namespace WinFormsDemo {
         void Build()
         {
             var mainPanel = this.BuildMainPanel();
-            this.PnlGood = this.BuildPanelGood();
-            this.PnlPassenger = this.BuildPanelPassenger();
             
-            mainPanel.Controls.Add( this.PnlPassenger );
-            mainPanel.Controls.Add( this.PnlGood );
+            this.pnlGood = this.BuildPanelGood();
+            this.pnlPassenger = this.BuildPanelPassenger();
+            
+            this.pnlContainer.Controls.Add( this.pnlPassenger );
+            this.pnlContainer.Controls.Add( this.pnlGood );
             
             this.Controls.Add( mainPanel );
         }
@@ -57,6 +58,9 @@ namespace WinFormsDemo {
             );
 
             this.CmbSelector.SelectedIndex = 0;
+
+            this.pnlContainer = new WForms.Panel { Dock = WForms.DockStyle.Fill };
+            toret.Controls.Add( this.pnlContainer );
             toret.Controls.Add( this.CmbSelector );
             return toret;
         }
@@ -168,7 +172,8 @@ namespace WinFormsDemo {
             get; private set;
         }
 
-        WForms.Panel PnlPassenger;
-        WForms.Panel PnlGood;
+        WForms.Panel pnlPassenger;
+        WForms.Panel pnlGood;
+        WForms.Panel pnlContainer;
     }
 }
