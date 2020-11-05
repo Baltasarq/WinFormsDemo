@@ -14,46 +14,59 @@ namespace WinFormsDemo {
 		private void BuildMenu()
 		{
 			this.Menu = new WForms.MainMenu();
-            
-            // Quit
-            this.OpQuit = new WForms.MenuItem("&Quit") {
-                Shortcut = WForms.Shortcut.CtrlQ
-            };
-            
-            // View default panel
-            this.OpSimplePanel = new WForms.MenuItem("&Simple panel") {
-                Shortcut = WForms.Shortcut.CtrlF5
-            };
-            
-            // View table panel
-            this.OpTablePanel = new WForms.MenuItem("&Table panel") {
-                Shortcut = WForms.Shortcut.CtrlF6
-            };
-            
-            // View dynamic panel
-            this.OpDynamicPanel = new WForms.MenuItem( "&Dynamic panel" ) {
-	            Shortcut = WForms.Shortcut.CtrlF7
-            };        
-            
-            // View chart demo
-            this.OpChartDemo = new WForms.MenuItem("&Chart demo") {
-                Shortcut = WForms.Shortcut.CtrlF11
-            };
-            
-            // Main menus
-            var mFile = new WForms.MenuItem( "&File" );
-            var mView = new WForms.MenuItem( "&View" );
 
-            // Add options to menus
-            mFile.MenuItems.Add( this.OpQuit );
+			// Quit
+			this.OpQuit = new WForms.MenuItem("&Quit")
+			{
+				Shortcut = WForms.Shortcut.CtrlQ
+			};
 
-            mView.MenuItems.Add( this.OpSimplePanel );
-            mView.MenuItems.Add( this.OpTablePanel );
-            mView.MenuItems.Add( this.OpDynamicPanel );
-            mView.MenuItems.Add( this.OpChartDemo );
-            
-			this.Menu.MenuItems.Add( mFile );
-			this.Menu.MenuItems.Add( mView );
+			// View default panel
+			this.OpSimplePanel = new WForms.MenuItem("&Simple panel")
+			{
+				Shortcut = WForms.Shortcut.CtrlF5
+			};
+
+			// View table panel
+			this.OpTablePanel = new WForms.MenuItem("&Table panel")
+			{
+				Shortcut = WForms.Shortcut.CtrlF6
+			};
+
+			// View dynamic panel
+			this.OpDynamicPanel = new WForms.MenuItem("&Dynamic panel")
+			{
+				Shortcut = WForms.Shortcut.CtrlF7
+			};
+
+			// View dialog
+			this.OpDialog = new WForms.MenuItem("&Dialog")
+			{
+				Shortcut = WForms.Shortcut.CtrlF8
+			};
+
+			// View chart demo
+			this.OpChartDemo = new WForms.MenuItem("&Chart demo")
+			{
+				Shortcut = WForms.Shortcut.CtrlF11
+			};
+
+			// Main menus
+			var mFile = new WForms.MenuItem("&File");
+			var mView = new WForms.MenuItem("&View");
+
+			// Add options to menus
+			mFile.MenuItems.Add(this.OpQuit);
+
+			mView.MenuItems.AddRange( new[]{
+				this.OpSimplePanel,
+				this.OpTablePanel,
+				this.OpDynamicPanel,
+				this.OpChartDemo,
+				this.OpDialog
+			});
+
+			this.Menu.MenuItems.AddRange( new []{ mFile, mView } );
 		}
 
 		private void Build()
@@ -82,11 +95,17 @@ namespace WinFormsDemo {
 	            Text = "Fourth",
 	            Dock = WForms.DockStyle.Top
             };
+
+            this.BtFith = new WForms.Button {
+				Text = "Fifth",
+				Dock = WForms.DockStyle.Top
+            };
             
-			pnlTable.Controls.Add( BtFirst );
-			pnlTable.Controls.Add( BtSecond );
-            pnlTable.Controls.Add( BtThird );
-            pnlTable.Controls.Add( BtFourth );
+			pnlTable.Controls.Add( this.BtFirst );
+			pnlTable.Controls.Add( this.BtSecond );
+            pnlTable.Controls.Add( this.BtThird );
+            pnlTable.Controls.Add( this.BtFourth );
+            pnlTable.Controls.Add( this.BtFith );
 
 			pnlTable.ResumeLayout( false );
 			this.Controls.Add( pnlTable );
@@ -111,6 +130,10 @@ namespace WinFormsDemo {
 		public WForms.Button BtFourth {
 			get; private set;
 		}
+		
+		public WForms.Button BtFith {
+			get; private set;
+		}
 
 		public WForms.MenuItem OpQuit {
 			get; private set;
@@ -129,6 +152,10 @@ namespace WinFormsDemo {
 		}
 		
 		public WForms.MenuItem OpDynamicPanel {
+			get; private set;
+		}
+		
+		public WForms.MenuItem OpDialog {
 			get; private set;
 		}
 	}

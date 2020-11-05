@@ -35,6 +35,8 @@
     <Compile Include="Chart.cs" />
     <Compile Include="DemoChartCtrl.cs" />
     <Compile Include="DemoChartView.cs" />
+    <Compile Include="DialogCtrl.cs" />
+    <Compile Include="DialogView.cs" />
     <Compile Include="DynamicPanelCtrl.cs" />
     <Compile Include="DynamicPanelView.cs" />
     <Compile Include="SimplePanelView.cs" />

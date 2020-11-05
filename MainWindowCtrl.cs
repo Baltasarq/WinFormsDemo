@@ -2,6 +2,8 @@
 
 
 namespace WinFormsDemo {
+    using WForms = System.Windows.Forms;
+    
     public class MainWindowCtrl {
         public MainWindowCtrl()
         {
@@ -12,10 +14,13 @@ namespace WinFormsDemo {
             this.View.OpChartDemo.Click += (o, args) => this.ViewDemoChart();
             this.View.OpTablePanel.Click += (o, args) => this.ViewTablePanel();
             this.View.OpDynamicPanel.Click += (o, args) => this.ViewDynamicPanel();
+            this.View.OpDialog.Click += (o, args) => this.ViewDialog();
+            
             this.View.BtFirst.Click += (o, args) => this.ViewSimplePanel();
             this.View.BtSecond.Click += (o, args) => this.ViewTablePanel();
             this.View.BtThird.Click += (o, args) => this.ViewDynamicPanel();
             this.View.BtFourth.Click += (o, args) => this.ViewDemoChart();
+            this.View.BtFith.Click += (o, args) => this.ViewDialog();
         }
         
         void OnQuit()
@@ -42,6 +47,14 @@ namespace WinFormsDemo {
         void ViewDynamicPanel()
         {
             new DynamicPanelCtrl().View.Show();
+        }
+        
+        void ViewDialog()
+        {
+            if ( new DialogCtrl().View.ShowDialog() == WForms.DialogResult.OK )
+            {
+                WForms.MessageBox.Show( "Ok" );
+            } 
         }
 
         public MainWindowView View {
